@@ -44,55 +44,38 @@
     <h1 class="hero-title">Mouse Merch</h1>
   </section>
 
-  <main class="product-grid">
+ <main class="product-grid">
 
-    <!-- 👕 Nike Polo Product -->
-    <div class="product-card">
-      <h2 class="product-title">Nike Dri-FIT Polo (NK1963)</h2>
-      <img src="images/Nike Polo.jpg" alt="Northwest Nike Polo" class="flyer-thumb" />
+  <!-- 👕 Nike Polo Product -->
+  <div class="product-card">
+    <h2 class="product-title">Nike Dri-FIT Polo (NK1963)</h2>
+    <img src="images/Nike Polo.jpg" alt="Northwest Nike Polo" class="flyer-thumb" />
 
-      <div class="product-details">
-        <form 
-          action="https://hooks.zapier.com/hooks/catch/12716030/um5yedq/" 
-          method="POST" 
-          target="hiddenFrame" 
-          onsubmit="handleFormSubmit(event)">
-          <input type="text" name="fullName" placeholder="Manager Name" required />
-          <input type="email" name="email" placeholder="Manager Email" required />
-          <select name="Quantity" required>
-            <option value="" disabled selected>Select Quantity</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-          </select>
-          <select name="office" required>
-            <option value="" disabled selected>Select Office</option>
-            <option value="Acworth - NWST">Acworth - NWST</option>
-            <option value="Marietta - NWST">Marietta - NWST</option>
-            <option value="Peachtree Corners - NWST">Peachtree Corners - NWST</option>
-            <option value="Team Support Center - NWST">Team Support Center - NWST</option>
-          </select>
-          <input type="hidden" name="product" value="Nike Polo Order" />
-          <button type="submit" class="button">Request</button>
-        </form>
-
-        <p id="successMessage">🥳 Stay tuned for an email confirmation!</p>
-      </div>
-
+    <div class="product-details">
       <p class="product-description">
         Official Nike Dri-FIT polo embroidered with the Northwest logo — designed for comfort, class, and service excellence.
       </p>
 
-      <!-- Stripe Buy Button -->
+      <!-- ✅ Request Button (now a Stripe link) -->
+      <a href="https://buy.stripe.com/4gM14oeihaaDfoIdUF8Ra03" 
+         target="_blank" 
+         class="dark-button">
+        Request Polo
+      </a>
+
+      <!-- ✅ Stripe Buy Button -->
       <stripe-buy-button
         buy-button-id="buy_btn_1SIK3pKFAuivcOkljBqytNFD"
         publishable-key="pk_live_51Rhs5MKFAuivcOklpHhwr9JChp241h9VBAiqVp5gEhoauuW90qghYGRUTGcnsVt2L35LWkkpigcceQHOok08jX0w00dwfmnRpJ">
       </stripe-buy-button>
     </div>
-  </main>
+  </div>
+</main>
 
-  <!-- Stripe Script -->
-  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+<!-- Stripe Script -->
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+
 
   <!-- JS (unchanged) -->
   <script src="scripts/main.js"></script>

@@ -372,3 +372,43 @@ stripe-buy-button:hover {
 #error-msg.success {
   color: #85C446;
 }
+/* ============================= */
+/* UNIFIED DARK BUTTONS          */
+/* ============================= */
+
+/* Shared dark gray button style for both Stripe + custom links */
+.dark-button,
+stripe-buy-button {
+  --background-color: #333333; /* Graphite gray */
+  --background-color-hover: #1e1e1e; /* Slightly darker */
+  --font-color: #ffffff; /* White text */
+  --border-radius: 6px;
+  --font-family: "Inter", sans-serif;
+  --font-weight: 600;
+  --font-size: 0.9rem;
+  --padding-y: 8px;
+  --padding-x: 16px;
+  --transition: all 0.2s ease-in-out;
+
+  background-color: var(--background-color);
+  color: var(--font-color);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: var(--padding-y) var(--padding-x);
+  font-weight: var(--font-weight);
+  font-family: var(--font-family);
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  transition: var(--transition);
+  margin-top: 10px;
+}
+
+/* Hover + focus states */
+.dark-button:hover,
+stripe-buy-button:hover {
+  background-color: var(--background-color-hover);
+  transform: scale(0.98);
+  opacity: 0.95;
+}

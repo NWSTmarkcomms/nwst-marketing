@@ -3,95 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Product Flyers</title>
+  <title>NWST Marketing Portal Login</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f5f5f5;
+      flex-direction: column;
+      margin: 0;
+    }
+    .login-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 380px;
+    }
+    .login-card img {
+      max-width: 100px;
+      margin-bottom: 20px;
+    }
+    .login-card h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .login-card input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .login-card button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      background-color: #85C446; /* Northwest green */
+      color: white;
+      font-size: 1rem;
+      transition: 0.2s ease-in-out;
+    }
+    .login-card button:hover {
+      background-color: #6EA53B;
+    }
+    .note {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
 </head>
+
 <body>
 
-    <iframe name="hiddenFrame" style="display:none;"></iframe>
-    
-  <header class="header">
-    <div class="logo-nav-container">
-      <img src="images/logo-placeholder.png" alt="Company Logo" class="logo" />
-    
-
-
-  
-      <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="events.html">Events</a>
-        <a href="catalog.html">Print Collateral</a>
-      </nav>
-
-</div>
-
-
-
-    </div>
-  </header>
-
-<!-- Promotions Section -->
-<div class="page-content-wrapper">
-  <div class="product-grid">
-
-    <!-- Card 1 -->
-    <a href="events.html" class="product-card-link">
-      <div class="product-card">
-        <img src="images/img1.png" alt="Event Image" class="flyer-thumb" />
-        <div class="product-title">Celebrate Your Community!</div>
-        <p>Reserve or Purchase Event Materials to Boost Morale and Sales.</p>
-        <div class="product-details button">Request Event Support</div>
-      </div>
-    </a>
-
-    <!-- Card 2 -->
-    <a href="index.html" class="product-card-link">
-      <div class="product-card">
-        <img src="images/img2.png" alt="Teammate With Customer" class="flyer-thumb" />
-        <div class="product-title">Soften the Conversation!</div>
-        <p>Marketing is Ready to Do the Heavy Lifting. Explore Our Marketing Material Catalog.</p>
-        <div class="product-details button">Request Marketing Materials</div>
-      </div>
-    </a>
-
-    <!-- Card 3 -->
-    <a href="thank-you-cards.html" class="product-card-link">
-      <div class="product-card">
-        <img src="images/img3.png" alt="Thank You Cards" class="flyer-thumb" />
-        <div class="product-title">Make the Difference!</div>
-        <p>Pair a Gesture, Initiative, or Idea With Words that Last.</p>
-        <div class="product-details button">Request Thank You Cards</div>
-      </div>
-    </a>
-
+  <div class="login-card">
+    <img src="images/logo-placeholder.png" alt="Company Logo" />
+    <h1>Teammate Login</h1>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button id="login-btn">Login</button>
+    <button id="signup-btn" style="background-color:#eee; color:#333;">Create Account</button>
+    <p class="note">Access available to authorized teammates only.</p>
   </div>
-</div>
 
-<section class="feature-section">
-  <div class="feature-content">
-    <div class="feature-text-card">
-      <h2>#16. Enhance and Elevate</h2>
-      <p>
-        We assume the best in our team and customers while constantly striving to elevate
-        the days of others by being positive, uplifting, and having gratitude. We celebrate
-        each other by noticing and pointing out those extraordinary actions of our teammates.
-      </p>
-      <a 
-        href="Bug House Service Standard Guide.pdf" 
-        class="feature-btn" 
-        target="_blank" 
-        rel="noopener noreferrer"
-      >
-        View Service Standards
-      </a>
-    </div>
-    <div class="feature-image">
-      <img src="images/img4.png" alt="Live Healthier Today">
-    </div>
-  </div>
-</section>
+  <!-- Firebase Auth Script -->
+  <script type="module" src="/scripts/auth.js"></script>
 
+  <!-- Login Logic -->
+  <script type="module">
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } 
+      from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+    import { auth } from "/scripts/auth.js";
 
+    // Redirect logged-in users to catalog
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        window.location.href = "catalog.html";
+      }
+    });
 
+    // Login
+    document.getElementById("login-btn").addEventListener("click", async () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+      } catch (error) {
+        alert(error.message);
+      }
+    });
+
+    // Signup
+    document.getElementById("signup-btn").addEventListener("click", async () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        alert("Account created successfully. You can now log in!");
+      } catch (error) {
+        alert(error.message);
+      }
+    });
+  </script>
 </body>
 </html>

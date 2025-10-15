@@ -5,87 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NWST Marketing Portal Login</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: "Inter", sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: #f8f8f8;
-      flex-direction: column;
-      margin: 0;
-    }
-
-    .login-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 100%;
-      max-width: 400px;
-    }
-
-    .login-card img {
-      max-width: 120px;
-      margin-bottom: 16px;
-    }
-
-    .login-card h1 {
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .login-card input {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    .login-card button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      background-color: #85C446; /* Northwest green */
-      color: white;
-      font-size: 1rem;
-      transition: 0.2s ease-in-out;
-    }
-
-    .login-card button:hover {
-      background-color: #6EA53B;
-    }
-
-    .create-btn {
-      background-color: #eee;
-      color: #333;
-    }
-
-    .note {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    #error-msg {
-      color: #7C2529; /* Northwest dark red */
-      font-weight: 600;
-      font-size: 0.9rem;
-      margin-top: 10px;
-      min-height: 20px;
-    }
-  </style>
 </head>
 
-<body>
+<body class="login-body">
   <div class="login-card">
     <img src="images/FOB-Logo.png" alt="Northwest Logo" />
     <h1>Teammate Login</h1>
@@ -100,7 +22,7 @@
     <p class="note">Access available to authorized teammates only.</p>
   </div>
 
-  <!-- Firebase Authentication Core -->
+  <!-- Firebase Auth -->
   <script type="module" src="/scripts/auth.js"></script>
 
   <!-- Login + Signup Logic -->
@@ -117,21 +39,17 @@
 
     // Redirect logged-in users to catalog
     onAuthStateChanged(auth, (user) => {
-      if (user) {
-        window.location.href = "catalog.html";
-      }
+      if (user) window.location.href = "catalog.html";
     });
 
-    // --- LOGIN ---
+    // Login
     document.getElementById("login-btn").addEventListener("click", async () => {
       const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value.trim();
-
       if (!email || !password) {
         errorMsg.textContent = "Please enter both email and password.";
         return;
       }
-
       try {
         await signInWithEmailAndPassword(auth, email, password);
       } catch (error) {
@@ -139,7 +57,7 @@
       }
     });
 
-    // --- SIGNUP with Password Strength Validation ---
+    // Signup + password validation
     document.getElementById("signup-btn").addEventListener("click", async () => {
       const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value.trim();
@@ -158,10 +76,10 @@
 
       try {
         await createUserWithEmailAndPassword(auth, email, password);
-        errorMsg.style.color = "#85C446";
+        errorMsg.classList.add("success");
         errorMsg.textContent = "✅ Account created successfully. You can now log in.";
       } catch (error) {
-        errorMsg.style.color = "#7C2529";
+        errorMsg.classList.remove("success");
         errorMsg.textContent = error.message;
       }
     });

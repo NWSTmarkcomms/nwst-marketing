@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Product Flyers</title>
+  <title>Northwest Marketing</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -34,20 +34,9 @@
     </div>
 
     <!-- 🔒 User login bar -->
-    <div class="user-controls" style="text-align:right; padding:10px 20px;">
-      <span id="userEmail" style="margin-right:12px; font-weight:500; color:#333;"></span>
-      <button id="logout-btn" style="
-        background-color:#85C446;
-        border:none;
-        color:white;
-        font-weight:bold;
-        border-radius:8px;
-        padding:8px 14px;
-        cursor:pointer;
-        display:none;
-      ">
-        Sign Out
-      </button>
+    <div class="user-controls">
+      <span id="userEmail"></span>
+      <button id="logout-btn">Sign Out</button>
     </div>
   </header>
 
@@ -59,7 +48,7 @@
     <div class="feature-content">
       <div class="feature-text-card">
         <h2>
-          <a href="#" class="feature-title-link" id="featureToggle" role="button" aria-controls="featureDetails" aria-expanded="false">
+          <a href="#" class="feature-title-link" id="featureToggle" role="button">
             Which Marketing Material Fits Your Moment?
           </a>
         </h2>
@@ -106,84 +95,26 @@
           <button type="submit" class="button">Request</button>
         </form>
 
-        <p id="successMessage" style="display:none; color:green; margin-top:10px;">
-          🥳 Stay tuned for an email confirmation!
-        </p>
+        <p id="successMessage">🥳 Stay tuned for an email confirmation!</p>
       </div>
 
-      <p>Official Nike Dri-FIT polo embroidered with the Northwest logo — designed for comfort, class, and service excellence.</p>
-      <a 
-        href="https://buy.stripe.com/4gM14oeihaaDfoIdUF8Ra03" 
-        target="_blank" 
-        class="button"
-        id="polo-link">
-        Buy Now
-      </a>
+      <p class="product-description">
+        Official Nike Dri-FIT polo embroidered with the Northwest logo — designed for comfort, class, and service excellence.
+      </p>
+
+      <!-- Stripe Buy Button -->
+      <stripe-buy-button
+        buy-button-id="buy_btn_1SIK3pKFAuivcOkljBqytNFD"
+        publishable-key="pk_live_51Rhs5MKFAuivcOklpHhwr9JChp241h9VBAiqVp5gEhoauuW90qghYGRUTGcnsVt2L35LWkkpigcceQHOok08jX0w00dwfmnRpJ">
+      </stripe-buy-button>
     </div>
   </main>
 
-  <script>
-    // --- Product & Search Handling ---
-    document.addEventListener('DOMContentLoaded', () => {
-      const checkboxes = Array.from(document.querySelectorAll('.expand-checkbox'));
+  <!-- Stripe Script -->
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
-      function updateScrollLock() {
-        const anyOpen = checkboxes.some(cb => cb.checked);
-        document.body.classList.toggle('modal-open', anyOpen);
-      }
-
-      checkboxes.forEach(cb => cb.addEventListener('change', updateScrollLock));
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          checkboxes.forEach(cb => cb.checked = false);
-          updateScrollLock();
-        }
-      });
-
-      const search = document.getElementById('portalSearch');
-      if (search) {
-        search.addEventListener('input', function () {
-          const q = this.value.toLowerCase();
-          document.querySelectorAll('.product-card').forEach(card => {
-            const title = (card.querySelector('.product-title')?.textContent || '').toLowerCase();
-            card.style.display = title.includes(q) ? 'block' : 'none';
-          });
-        });
-      }
-
-      window.handleFormSubmit = function(e) {
-        e.preventDefault();
-        const form = e.target;
-        form.submit();
-        form.reset();
-        const msg = form.closest('.product-details').querySelector('#successMessage');
-        if (msg) {
-          msg.style.display = 'block';
-          setTimeout(() => (msg.style.display = 'none'), 2000);
-        }
-        setTimeout(() => {
-          window.location.href = 'success.html';
-        }, 2500);
-      };
-    });
-  </script>
-
-  <!-- 🔒 Auth + Email Prefill Integration -->
+  <!-- JS (unchanged) -->
+  <script src="scripts/main.js"></script>
   <script type="module" src="/scripts/auth.js"></script>
-  <script type="module">
-    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
-    import { auth } from "/scripts/auth.js";
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const poloLink = document.getElementById("polo-link");
-        if (poloLink) {
-          poloLink.href = `https://buy.stripe.com/4gM14oeihaaDfoIdUF8Ra03?prefilled_email=${encodeURIComponent(user.email)}`;
-        }
-      }
-    });
-  </script>
-
 </body>
 </html>

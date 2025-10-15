@@ -1,0 +1,502 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f4f4;
+  color: #222;
+}
+
+.header {
+  background-color: #85C446;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.logo-nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo {
+  height: 60px;
+}
+
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero-banner {
+  background: linear-gradient(to right, #6ba136, #85C446);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* always 3 columns */
+  gap: 1rem;
+  padding: 1rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  transform: scale(1.02);
+}
+
+body.modal-open .product-card:hover {
+  transform: none;
+}
+
+.flyer-thumb {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.product-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.product-details form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+.product-details input,
+.product-details select {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.product-details input::placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.product-details input:focus,
+.product-details select:focus {
+  border-color: #85C446;
+  outline: none;
+}
+
+.product-details button {
+  padding: 0.75rem;
+  background-color: #85C446;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+}
+
+.product-details button:hover {
+  background-color: #6ba136;
+}
+
+
+.row-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.flyer-expand-toggle {
+  flex: 0 0 200px;
+  max-width: 200px;
+}
+
+.expand-checkbox:checked ~ .flyer-expanded-view {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.flyer-thumb-container {
+  display: block;
+  cursor: pointer;
+}
+
+.flyer-expanded-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+.flyer-close-button {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: transparent;
+  border: none;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.flyer-close-button:hover {
+  color: #ccc;
+}
+
+.flyer-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.flyer-expanded-view img.flyer-expanded-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  display: block;
+  margin: auto;
+}
+
+
+.product-card .product-title {
+  font-size: 1.5rem;
+  color: #85C446;
+  margin: 0 0 1rem 0;
+  text-align: left;
+}
+
+.product-card {
+  background: #ffffff; 
+  border: 1px solid #e8e6dd;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  transform-origin: top left;
+
+  max-width: 320px;   /* ✅ keep cards from being oversized */
+  width: 100%;        /* ✅ let them shrink as needed */
+  margin: 0 auto;     /* ✅ center inside each grid cell */
+}
+
+
+
+.nav-search-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#portalSearch {
+  width: 300px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.page-content-wrapper {
+  width: 100%;
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+  background: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+
+.product-details textarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.video-banner {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-banner video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.product-card-link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+.product-card-link:hover,
+.product-card-link:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navbar a:visited {
+  color: white;
+}
+
+.feature-section {
+  background-color: #f5f5f5;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.feature-content {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  border: 2px solid #85C446;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.feature-text-card {
+  flex: 1;
+  padding: 2rem;
+}
+
+.feature-text-card h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.feature-text-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.feature-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid rgb(52, 37, 37);
+  background: transparent;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.feature-btn:hover {
+  background: black;
+  color: white;
+}
+
+.feature-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.product-details.button {
+  padding: 0.75rem 1.25rem;
+  background-color: #85C446;
+  color: white;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+  margin-top: 1rem;
+}
+
+.product-details.button:hover {
+  background-color: #6ba136;
+}
+
+.return-home-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #85C446;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.return-home-btn:hover {
+  background-color: #6ba136;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.video-banner {
+  height: 100vh; /* Full screen height */
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-banner video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+main, .pdf-embed {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.pdf-embed {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+.product-card-link,
+.feature-btn,
+.return-home-btn {
+  border-radius: 12px;
+}
+
+.feature-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.feature-title-link:hover {
+  text-decoration: underline;
+  color: #85C446; /* or your brand color */
+}
+
+.feature-details {
+  display: none; /* hide initially */
+}
+
+.feature-details.show {
+  display: block; /* show when toggled */
+}
+
+/* Closed state: keep it minimal */
+.feature-section:not(.open) .feature-content {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+}
+
+/* Add the .open class when revealing */
+/* in style.css */
+.feature-details { display: none; }
+.feature-details.show { display: block; }
+
+/* tighten hero + feature spacing */
+.hero-banner { padding: 1.25rem 2rem; }          /* was 2rem */
+.feature-section { padding: 1rem 0; margin: 0; }  /* was 4rem 2rem */
+.feature-content { cursor: pointer; }
+
+/* accordion states */
+.feature-details { display: none; }
+.feature-section.open .feature-details { display: block; }
+
+/* optional: reduce gap above the grid a touch */
+.product-grid { padding-top: 0.75rem; }           /* was 1rem */

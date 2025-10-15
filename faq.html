@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Flyers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <iframe name="hiddenFrame" style="display:none;"></iframe>
+    
+  <header class="header">
+    <div class="logo-nav-container">
+      <img src="images/logo-placeholder.png" alt="Company Logo" class="logo" />
+    
+
+
+<div class="search-wrapper">
+  <div class="search-container">
+    <input type="text" id="portalSearch" placeholder="Search materials..." />
+  </div>
+  
+<nav class="navbar"> 
+  <a href="catalog.html">All Materials</a>
+  <a href="door-hangers.html">Door Hangers</a>
+  <a href="leave-behinds.html">Leave Behinds</a>
+  <a href="event-materials.html">Event Materials</a>
+  <a href="flyers.html">Flyers</a>
+  <a href="takeover.html">Takeover Cards</a>
+  <a href="thank-you-cards.html">Thank You Cards</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact Us</a>
+</nav>
+
+</div>
+
+
+
+    </div>
+
+
+<main>
+  <iframe class="pdf-embed" src="doc.guide.pdf" allowfullscreen></iframe>
+</main>
+
+
+<footer>
+  <p>© 2025 Live Healthier Today</p>
+</footer>
+
+<script>
+  function handleSubmit(event, form) {
+    setTimeout(() => {
+      const parent = form.parentElement;
+      parent.innerHTML = `
+        <div class="thank-you-message">
+          <p>✅ You Make Pest Control Look Good! Your order will arrive at your office in less than 2 weeks. Thank you!</p>
+        </div>
+      `;
+    }, 500);
+  }
+</script>
+
+</body>
+</html>

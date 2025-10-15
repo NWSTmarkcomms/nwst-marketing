@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-nav-container">
+      <img src="images/logo-placeholder.png" alt="Company Logo" class="logo" />
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Print Collateral</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <h1 class="hero-title">Event Experience Support</h1>
+    <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto;">Request Marketing Materials, Events, or Research Your Office's Community</p>
+
+  </section>
+
+  <!-- About Content -->
+  <section class="page-content-wrapper">
+    <div style="max-width: 1000px; display: flex; flex-direction: column; gap: 2rem;">
+
+      <!-- Section 1 -->
+<div class="product-card" style="cursor: pointer;" onclick="scrollToForm()">
+  <h2 class="product-title">Event Material Innovation</h2>
+  <p>We believe extraordinary experiences begin with extraordinary ideas. Use the form below to request an event or item.</p>
+</div>
+
+
+
+<!-- Section 2 -->
+<div class="product-card">
+  <h2 class="product-title">Community Insights</h2>
+  <p>Explore Your Community's Needs and Upcoming Events</p>
+  <button onclick="scrollToConnections()" style="margin-top: 0.5rem;">View Local Connections</button>
+</div>
+
+
+
+    </div>
+  </section>
+
+  <!-- Local Connections Section -->
+<section id="local-connections" class="page-content-wrapper" style="margin-top: 2rem;">
+  <div style="max-width: 1000px; display: flex; flex-direction: column; gap: 1.5rem;">
+    <div class="product-card">
+      <h2 class="product-title">Bug House Community Insights</h2>
+      <p>Where is the Local Attention? What are Local Universities, Schools, Businesses, and Families Doing in Your Community?</p>
+      
+      <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
+        <li><strong>Augusta:</strong> 
+          <a href="https://censusreporter.org/profiles/16000US1304204-augusta-richmond-county-consolidated-government-balance-ga/" target="_blank">Demographics</a> | 
+          <a href="https://www.augustaga.gov/calendar.aspx" target="_blank">Events</a>
+        </li>
+        <li><strong>Carrollton:</strong> 
+          <a href="https://censusreporter.org/profiles/16000US1313492-carrollton-ga/" target="_blank">Demographics</a> | 
+          <a href="https://carrolltonga.com/annualevents/" target="_blank">Events</a>
+        </li>
+        <li><strong>Dublin:</strong> 
+          <a href="https://censusreporter.org/profiles/16000US1324376-dublin-ga/" target="_blank">Demographics</a> | 
+          <a href="https://visitdublinga.org/event-calendar/" target="_blank">Events</a>
+        </li>
+        <li><strong>Eastman:</strong> 
+          <a href="https://censusreporter.org/profiles/16000US1325552-eastman-ga/" target="_blank">Demographics</a> | 
+          <a href="https://eastman-georgia.com/event-calendar/" target="_blank">Events</a>
+        </li>
+        <li><strong>Greensboro:</strong> 
+          <a href="https://censusreporter.org/profiles/16000US1334876-greensboro-ga/" target="_blank">Demographics</a> | 
+          <a href="https://downtowngreensboroga.com/events" target="_blank">Events</a>
+        </li>
+        <li><strong>Macon:</strong> 
+          <a href="https://censusreporter.org/profiles/16000US1349008-macon-bibb-county-ga/" target="_blank">Demographics</a> | 
+          <a href="https://visitmacon.org/events/this-weekend/" target="_blank">Events</a>
+        </li>
+        <li><strong>Madison:</strong> 
+          <a href="https://censusreporter.org/profiles/16000US1349196-madison-ga/" target="_blank">Demographics</a> | 
+          <a href="https://visitmadisonga.com/calendarofevents/" target="_blank">Events</a>
+        </li>
+        <li><strong>Milledgeville:</strong> 
+          <a href="https://censusreporter.org/profiles/16000US1351492-milledgeville-ga/" target="_blank">Demographics</a> | 
+          <a href="https://www.visitmilledgeville.org/events/" target="_blank">Events</a>
+        </li>
+        <li><strong>St. Simons:</strong> 
+          <a href="https://censusreporter.org/profiles/16000US1368040-st-simons-ga/" target="_blank">Demographics</a> | 
+          <a href="https://www.explorestsimonsisland.com/St_Simons_Calendar.html" target="_blank">Events</a>
+        </li>
+        <li><strong>Warner Robins:</strong> 
+          <a href="https://censusreporter.org/profiles/16000US1380508-warner-robins-ga/" target="_blank">Demographics</a> | 
+          <a href="https://www.wrga.gov/events" target="_blank">Events</a>
+        </li>
+        <li><strong>Watkinsville:</strong> 
+          <a href="https://censusreporter.org/profiles/16000US1380788-watkinsville-ga/" target="_blank">Demographics</a> | 
+          <a href="https://www.cityofwatkinsville.com/150/Tourism-Events" target="_blank">Events</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Smartsheet Embedded Form -->
+<section id="event-form" class="page-content-wrapper" style="margin-top: 2rem;">
+    <div style="width: 100%; max-width: 1000px;">
+      <h2 class="product-title">Event Request Form</h2>
+      <p>Connect With Your Community by Using the Form Below</p>
+
+      <!-- 🔁 Replace `URL_HERE` with your Smartsheet Embed URL -->
+      <iframe 
+        src="https://app.smartsheet.com/b/form/1aed977bc60640b598eb42c1f3b50354"
+        width="100%" 
+        height="600px" 
+        frameborder="0">
+      </iframe>
+    </div>
+  </section>
+
+  <script>
+  function scrollToConnections() {
+    const section = document.getElementById("local-connections");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  function scrollToForm() {
+    const formSection = document.getElementById("event-form");
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+</script>
+</body>
+</html>
+
+
+  <script>
+  function scrollToConnections() {
+    const section = document.getElementById("local-connections");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+</script>
+</body>
+</html>

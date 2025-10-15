@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Flyers</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      margin-bottom: 0.25rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input, textarea {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.6rem 1.2rem;
+      background-color: #85C446;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #85C446;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo-nav-container">
+      <img src="images/northwest.png" alt="Northwest Logo" class="logo" />
+      <div class="search-wrapper">
+        <div class="search-container">
+          <input type="text" id="portalSearch" placeholder="Search materials..." />
+        </div>
+<nav class="navbar"> 
+  <a href="catalog.html">All Materials</a>
+  <a href="door-hangers.html">Door Hangers</a>
+  <a href="leave-behinds.html">Leave Behinds</a>
+  <a href="event-materials.html">Event Materials</a>
+  <a href="flyers.html">Flyers</a>
+  <a href="takeover.html">Takeover Cards</a>
+  <a href="thank-you-cards.html">Thank You Cards</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact Us</a>
+</nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-banner">
+    <h1 class="hero-title">Marketing Material Portal</h1>
+  </section>
+
+  <main class="page-content-wrapper">
+    <div style="width: 100%; max-width: 600px; margin: 0 auto;">
+      <h1 style="color: #85C446; text-align: center;">How Can We Help?</h1>
+      <p style="text-align: center;">Share Your Custom Request Here!</p>
+
+      <form id="contactForm" style="display: flex; flex-direction: column; gap: 1rem;">
+        <input type="text" name="fullName" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="text" name="subject" placeholder="Subject" required />
+        <textarea name="message" placeholder="Share Your Request Here!" rows="4" required></textarea>
+        <button type="submit" class="button">Send Message</button>
+      </form>
+
+      <div id="thankYouMessage" style="display:none; margin-top:1.5rem; color:green; font-weight:bold; text-align: center;">
+        ✅ Thanks! We'll be in touch shortly.
+      </div>
+    </div>
+  </main>
+
+  <footer style="text-align:center; padding:1rem;">
+    <p>© 2025 Bug House Pest Control — Live Healthier Today</p>
+  </footer>
+
+  <script>
+    const ZAPIER_WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/12716030/um5y8ey/";
+
+    document.getElementById("contactForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const formData = new FormData(form); // sends as multipart/form-data
+
+      try {
+        const res = await fetch(ZAPIER_WEBHOOK_URL, {
+          method: "POST",
+          body: formData
+        });
+
+        if (res.ok) {
+          window.location.href = "https://northwest-marketing.netlify.app/contact";
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      } catch (err) {
+        alert("Submission failed. Try again later.");
+      }
+    });
+  </script>
+
+</body>
+</html>

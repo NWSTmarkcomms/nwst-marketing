@@ -8,271 +8,182 @@
 </head>
 <body>
 
-    <iframe name="hiddenFrame" style="display:none;"></iframe>
-    
+  <iframe name="hiddenFrame" style="display:none;"></iframe>
+
   <header class="header">
     <div class="logo-nav-container">
       <img src="images/northwest.png" alt="Northwest Logo" class="logo" />
-    
 
+      <div class="search-wrapper">
+        <div class="search-container">
+          <input type="text" id="portalSearch" placeholder="Search materials..." />
+        </div>
 
-<div class="search-wrapper">
-  <div class="search-container">
-    <input type="text" id="portalSearch" placeholder="Search materials..." />
-  </div>
-  
-<nav class="navbar"> 
-  <a href="catalog.html">All Materials</a>
-  <a href="door-hangers.html">Door Hangers</a>
-  <a href="leave-behinds.html">Leave Behinds</a>
-  <a href="event-materials.html">Event Materials</a>
-  <a href="flyers.html">Flyers</a>
-  <a href="takeover.html">Takeover Cards</a>
-  <a href="thank-you-cards.html">Thank You Cards</a>
-  <a href="faq.html">FAQ</a>
-  <a href="contact.html">Contact Us</a>
-</nav>
-
-</div>
-
-
-
+        <nav class="navbar"> 
+          <a href="catalog.html">All Materials</a>
+          <a href="door-hangers.html">Door Hangers</a>
+          <a href="leave-behinds.html">Leave Behinds</a>
+          <a href="event-materials.html">Event Materials</a>
+          <a href="flyers.html">Flyers</a>
+          <a href="takeover.html">Takeover Cards</a>
+          <a href="thank-you-cards.html">Thank You Cards</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact Us</a>
+        </nav>
+      </div>
     </div>
+
+    <!-- 🔒 User login bar -->
     <div class="user-controls" style="text-align:right; padding:10px 20px;">
-  <span id="userEmail" style="margin-right:12px; font-weight:500; color:#333;"></span>
-  <button id="logout-btn" style="
-    background-color:#85C446;
-    border:none;
-    color:white;
-    font-weight:bold;
-    border-radius:8px;
-    padding:8px 14px;
-    cursor:pointer;
-    display:none;
-  ">
-    Sign Out
-  </button>
-</div>
+      <span id="userEmail" style="margin-right:12px; font-weight:500; color:#333;"></span>
+      <button id="logout-btn" style="
+        background-color:#85C446;
+        border:none;
+        color:white;
+        font-weight:bold;
+        border-radius:8px;
+        padding:8px 14px;
+        cursor:pointer;
+        display:none;
+      ">
+        Sign Out
+      </button>
+    </div>
   </header>
 
   <section class="hero-banner">
     <h1 class="hero-title">Marketing Material Portal</h1>
   </section>
 
-<section class="feature-section" id="featureSection" aria-expanded="false">
-  <div class="feature-content">
-    <div class="feature-text-card">
-      <h2>
-        <a href="#" class="feature-title-link" id="featureToggle" role="button" aria-controls="featureDetails" aria-expanded="false">
-          Which Marketing Material Fits Your Moment?
-        </a>
-      </h2>
-      <div class="feature-details">
-        <p><strong>Door Hangers (3.5x8.5")</strong><br>
-        Designed with your clover leafing strategy in mind.</p>
-        <p><strong>Flyers (8.5x11")</strong><br>
-        The largest way to share your services. Perfect for community boards, commercial leave-behinds, and high-impact messaging.</p>
-        <p><strong>Leave Behinds (4x9")</strong><br>
-        Designed for in-person connection and extraordinary events. A friendly, sleek way to continue the conversation.</p>
-        <p><strong>Takeover Cards (3x5")</strong><br>
-        Share $25 discounts to new customers at events.</p>
-        <p><strong>Thank You Cards (3x5")</strong><br>
-        A kind word goes a long way. Use these to show appreciation for your community or teammates.</p>
+  <section class="feature-section" id="featureSection" aria-expanded="false">
+    <div class="feature-content">
+      <div class="feature-text-card">
+        <h2>
+          <a href="#" class="feature-title-link" id="featureToggle" role="button" aria-controls="featureDetails" aria-expanded="false">
+            Which Marketing Material Fits Your Moment?
+          </a>
+        </h2>
+        <div class="feature-details">
+          <p><strong>Door Hangers (3.5x8.5")</strong><br> Designed with your clover leafing strategy in mind.</p>
+          <p><strong>Flyers (8.5x11")</strong><br> The largest way to share your services. Perfect for community boards, commercial leave-behinds, and high-impact messaging.</p>
+          <p><strong>Leave Behinds (4x9")</strong><br> Designed for in-person connection and extraordinary events. A friendly, sleek way to continue the conversation.</p>
+          <p><strong>Takeover Cards (3x5")</strong><br> Share $25 discounts to new customers at events.</p>
+          <p><strong>Thank You Cards (3x5")</strong><br> A kind word goes a long way. Use these to show appreciation for your community or teammates.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-
-
-
+  </section>
 
   <main class="product-grid">
 
-<div class="product-card">
-  <h2 class="product-title">Northwest Team Hoodie</h2>
-  <img src="images/nwst-hoodie.png" alt="NWST Hoodie" class="flyer-thumb" />
+    <!-- 👕 Nike Polo Product -->
+    <div class="product-card">
+      <h2 class="product-title">Nike Dri-FIT Polo (NK1963)</h2>
+      <img src="images/nwst-polo.png" alt="Northwest Nike Polo" class="flyer-thumb" />
 
+      <div class="product-details">
+        <form 
+          action="https://hooks.zapier.com/hooks/catch/12716030/um5yedq/" 
+          method="POST" 
+          target="hiddenFrame" 
+          onsubmit="handleFormSubmit(event)">
+          <input type="text" name="fullName" placeholder="Manager Name" required />
+          <input type="email" name="email" placeholder="Manager Email" required />
+          <select name="Quantity" required>
+            <option value="" disabled selected>Select Quantity</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          <select name="office" required>
+            <option value="" disabled selected>Select Office</option>
+            <option value="Acworth - NWST">Acworth - NWST</option>
+            <option value="Marietta - NWST">Marietta - NWST</option>
+            <option value="Peachtree Corners - NWST">Peachtree Corners - NWST</option>
+            <option value="Team Support Center - NWST">Team Support Center - NWST</option>
+          </select>
+          <input type="hidden" name="product" value="Nike Polo Order" />
+          <button type="submit" class="button">Request</button>
+        </form>
 
-   <div class="product-details">
-      <form 
-  action="https://hooks.zapier.com/hooks/catch/12716030/um5yedq/" 
-  method="POST" 
-  target="hiddenFrame" 
-  onsubmit="handleFormSubmit(event)" 
->
-
-
-            <input type="text" name="fullName" placeholder="Manager Name" required />
-            <input type="email" name="email" placeholder="Manager Email" required />
-            <select name="Quantity" required>
-              <option value="" disabled selected>Select Quantity</option>
-              <option value="100">100</option>
-              <option value="250">250</option>
-              <option value="500">500</option>
-              <option value="1000">1000</option>
-            </select>
-            <select name="office" required>
-              <option value="" disabled selected>Select Office</option>
-        <option value="Acworth - NWST">Acworth - NWST</option> 
-        <option value="Alpharetta - NWST">Alpharetta - NWST</option> 
-        <option value="Anniston - NWST">Anniston - NWST</option> 
-        <option value="Augusta - NWST">Augusta - NWST</option> 
-        <option value="Buford - NWST">Buford - NWST</option> 
-        <option value="Canton - NWST">Canton - NWST</option> 
-        <option value="Carrollton - NWST">Carrollton - NWST</option> 
-        <option value="Columbus - NWST">Columbus - NWST</option> 
-        <option value="Commercial Pest East Cobb - NWST">Commercial Pest East Cobb - NWST</option> 
-        <option value="Commercial Pest Tucker - NWST">Commercial Pest Tucker - NWST</option> 
-        <option value="Cullman - NWST">Cullman - NWST</option> 
-        <option value="Dallas - NWST">Dallas - NWST</option> 
-        <option value="Dawsonville - NWST">Dawsonville - NWST</option> 
-        <option value="East Cobb - NWST">East Cobb - NWST</option> 
-        <option value="Hermitage - NWST">Hermitage - NWST</option> 
-        <option value="Hixson - NWST">Hixson - NWST</option> 
-        <option value="Homewood - NWST">Homewood - NWST</option> 
-        <option value="Innovation Center - NWST">Innovation Center - NWST</option> 
-        <option value="Jasper - NWST">Jasper - NWST</option> 
-        <option value="LaGrange - NWST">LaGrange - NWST</option> 
-        <option value="Lanier - NWST">Lanier - NWST</option> 
-        <option value="Laurens - NWST">Laurens - NWST</option> 
-        <option value="Lawrenceville - NWST">Lawrenceville - NWST</option> 
-        <option value="Macon - NWST">Macon - NWST</option> 
-        <option value="Marietta - NWST">Marietta - NWST</option> 
-        <option value="Monroe - NWST">Monroe - NWST</option> 
-        <option value="Murfreesboro - NWST">Murfreesboro - NWST</option> 
-        <option value="Newnan - NWST">Newnan - NWST</option> 
-        <option value="Ooltewah - NWST">Ooltewah - NWST</option> 
-        <option value="Opelika - NWST">Opelika - NWST</option> 
-        <option value="Peachtree Corners - NWST">Peachtree Corners - NWST</option> 
-        <option value="Ringgold - NWST">Ringgold - NWST</option> 
-        <option value="Savannah - NWST">Savannah - NWST</option> 
-        <option value="Smyrna - NWST">Smyrna - NWST</option> 
-        <option value="Stockbridge - NWST">Stockbridge - NWST</option> 
-        <option value="Team Support Center - NWST">Team Support Center - NWST</option> 
-        <option value="Tucker - NWST">Tucker - NWST</option>
-            </select>
-            <input type="hidden" name="product" value="All Services Leave Behind" />
-            <button type="submit" class="button">Request</button>
-          </form>
-
-          <p id="successMessage" style="display:none; color:green; margin-top:10px;">
-  🥳 Stay tuned for an email confirmation!
-</p>
-        </div>
-
-  <p>Soft fleece hoodie with embroidered Northwest logo. Perfect for fall events or Friday spirit days.</p>
-  <a href="https://buy.stripe.com/test_abc123" target="_blank" class="button">Buy Now</a>
-</div>
-  </label>
-</div>
+        <p id="successMessage" style="display:none; color:green; margin-top:10px;">
+          🥳 Stay tuned for an email confirmation!
+        </p>
       </div>
+
+      <p>Official Nike Dri-FIT polo embroidered with the Northwest logo — designed for comfort, class, and service excellence.</p>
+      <a 
+        href="https://buy.stripe.com/4gM14oeihaaDfoIdUF8Ra03" 
+        target="_blank" 
+        class="button"
+        id="polo-link">
+        Buy Now
+      </a>
     </div>
-  
-
-
-    
   </main>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const checkboxes = Array.from(document.querySelectorAll('.expand-checkbox'));
 
-  function updateScrollLock() {
-    const anyOpen = checkboxes.some(cb => cb.checked);
-    document.body.classList.toggle('modal-open', anyOpen);
-  }
+  <script>
+    // --- Product & Search Handling ---
+    document.addEventListener('DOMContentLoaded', () => {
+      const checkboxes = Array.from(document.querySelectorAll('.expand-checkbox'));
 
-  // Toggle scroll lock when any modal checkbox changes
-  checkboxes.forEach(cb => cb.addEventListener('change', updateScrollLock));
-
-  // Close on ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      checkboxes.forEach(cb => cb.checked = false);
-      updateScrollLock();
-    }
-  });
-
-  // Close when clicking the "×" button
-  document.querySelectorAll('.flyer-close-button').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault(); // prevent the label default toggle
-      const label = btn.closest('.flyer-expanded-view');
-      if (label) {
-        const inputId = label.getAttribute('for');
-        const input = document.getElementById(inputId);
-        if (input) input.checked = false;
+      function updateScrollLock() {
+        const anyOpen = checkboxes.some(cb => cb.checked);
+        document.body.classList.toggle('modal-open', anyOpen);
       }
-      updateScrollLock();
-    });
-  });
 
-  // Search filter
-  const search = document.getElementById('portalSearch');
-  if (search) {
-    search.addEventListener('input', function () {
-      const q = this.value.toLowerCase();
-      document.querySelectorAll('.product-card').forEach(card => {
-        const title = (card.querySelector('.product-title')?.textContent || '').toLowerCase();
-        card.style.display = title.includes(q) ? 'block' : 'none';
+      checkboxes.forEach(cb => cb.addEventListener('change', updateScrollLock));
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          checkboxes.forEach(cb => cb.checked = false);
+          updateScrollLock();
+        }
       });
+
+      const search = document.getElementById('portalSearch');
+      if (search) {
+        search.addEventListener('input', function () {
+          const q = this.value.toLowerCase();
+          document.querySelectorAll('.product-card').forEach(card => {
+            const title = (card.querySelector('.product-title')?.textContent || '').toLowerCase();
+            card.style.display = title.includes(q) ? 'block' : 'none';
+          });
+        });
+      }
+
+      window.handleFormSubmit = function(e) {
+        e.preventDefault();
+        const form = e.target;
+        form.submit();
+        form.reset();
+        const msg = form.closest('.product-details').querySelector('#successMessage');
+        if (msg) {
+          msg.style.display = 'block';
+          setTimeout(() => (msg.style.display = 'none'), 2000);
+        }
+        setTimeout(() => {
+          window.location.href = 'success.html';
+        }, 2500);
+      };
     });
-  }
+  </script>
 
-  // Feature accordion (robust to missing IDs)
-  const section = document.getElementById('featureSection');
-  const title = document.getElementById('featureToggle');
-  const content = section?.querySelector('.feature-content');
-  const details = document.getElementById('featureDetails') || section?.querySelector('.feature-details');
+  <!-- 🔒 Auth + Email Prefill Integration -->
+  <script type="module" src="/scripts/auth.js"></script>
+  <script type="module">
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+    import { auth } from "/scripts/auth.js";
 
-  function toggleFeature(e) {
-    if (!section || !title || !details) return;
-    if (e) e.preventDefault();
-    const isOpen = section.classList.toggle('open');
-    details.classList.toggle('show', isOpen);
-    section.setAttribute('aria-expanded', isOpen);
-    title.setAttribute('aria-expanded', isOpen);
-  }
-
-  if (title) title.addEventListener('click', toggleFeature);
-  if (content) {
-    content.addEventListener('click', (e) => {
-      if (e.target.closest('.feature-details a') && e.target !== title) return;
-      if (e.target.closest('#featureToggle')) return;
-      toggleFeature(e);
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const poloLink = document.getElementById("polo-link");
+        if (poloLink) {
+          poloLink.href = `https://buy.stripe.com/4gM14oeihaaDfoIdUF8Ra03?prefilled_email=${encodeURIComponent(user.email)}`;
+        }
+      }
     });
-  }
-
-  // ✅ Form handler for Zapier + success message + redirect
-  window.handleFormSubmit = function(e) {
-    e.preventDefault();
-    const form = e.target;
-
-    // Submit to Zapier webhook
-    form.submit();
-
-    // Clear the form
-    form.reset();
-
-    // Show success message only inside this product-card
-    const msg = form.closest('.product-details').querySelector('#successMessage');
-    if (msg) {
-      msg.style.display = 'block';
-      setTimeout(() => {
-        msg.style.display = 'none';
-      }, 2000); // fade message before redirect
-    }
-
-    // Redirect after short delay
-    setTimeout(() => {
-      window.location.href = 'success.html';
-    }, 2500);
-    };
-});
-</script>
-
-<script type="module" src="/scripts/auth.js"></script>
-
+  </script>
 
 </body>
 </html>

@@ -197,11 +197,21 @@ a:focus {
 }
 
 .flyer-thumb {
-  width: 100%;
+  width: 70%;          /* makes it smaller */
+  max-width: 180px;    /* caps max size */
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: block;
+  margin: 0 auto;      /* centers it */
+  transition: transform 0.2s ease-in-out;
 }
+
+.flyer-thumb:hover {
+  transform: scale(1.05); /* optional slight zoom on hover */
+}
+
+
 
 .product-details {
   display: flex;
@@ -411,4 +421,11 @@ stripe-buy-button:hover {
   background-color: var(--background-color-hover);
   transform: scale(0.98);
   opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .flyer-thumb {
+    width: 85%;
+    max-width: 140px;
+  }
 }
